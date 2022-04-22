@@ -14,6 +14,26 @@ public class BoardController {
     @Autowired
     BoardService boardService;
     public Mono<ServerResponse> getBoardList(ServerRequest request){
-        return ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).bodyValue(boardService.boardEntityList());
+        return ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).bodyValue(boardService.getBoardList());
+    }
+
+    public Mono<ServerResponse> getBoard(ServerRequest serverRequest) {
+        return ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).bodyValue(boardService.getBoard());
+    }
+    public Mono<ServerResponse> saveBoard(ServerRequest serverRequest) {
+        return ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).bodyValue(boardService.saveBoard());
+    }
+    public Mono<ServerResponse> deleteBoard(ServerRequest serverRequest) {
+        return ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).bodyValue(boardService.deleteBoard());
+    }
+
+    public Mono<ServerResponse> getComment(ServerRequest serverRequest) {
+        return ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).bodyValue(boardService.getComment());
+    }
+    public Mono<ServerResponse> saveComment(ServerRequest serverRequest) {
+        return ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).bodyValue(boardService.saveComment());
+    }
+    public Mono<ServerResponse> deleteComment(ServerRequest serverRequest) {
+        return ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).bodyValue(boardService.deleteComment());
     }
 }
