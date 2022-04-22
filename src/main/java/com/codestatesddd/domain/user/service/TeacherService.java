@@ -10,6 +10,6 @@ public class TeacherService {
         //admin 확인 후
         System.out.println("강사저장");
         //save teacher
-        return new TeacherEntity();
+        return new TeacherEntity("영희");
     }
 }

@@ -10,7 +10,7 @@ import java.util.List;
 public class CommentService {
     public CommentEntity saveComment() {
         System.out.println("댓글 쓰기");
-        return new CommentEntity(0,0,"test comment");
+        return new CommentEntity(1,1,"");
     }
     public List<CommentEntity> getComment(){
         System.out.println("댓글 읽기");
