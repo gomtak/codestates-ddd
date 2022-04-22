@@ -14,29 +14,17 @@ public class BoardService {
         System.out.println("게시글 리스트 불러오기");
         return new ArrayList<>();
     }
-
     public BoardEntity saveBoard() {
         System.out.println("게시글 쓰기");
-        return new BoardEntity();
+        return new BoardEntity("Title","Content");
     }
     public BoardEntity getBoard(){
         System.out.println("게시글 읽기");
-        return new BoardEntity();
+        return new BoardEntity("Title","Content");
     }
     public int deleteBoard(){
         System.out.println("게시글 삭제");
         return 0;
     }
-    public CommentEntity saveComment() {
-        System.out.println("댓글 쓰기");
-        return new CommentEntity();
-    }
-    public List<CommentEntity> getComment(){
-        System.out.println("댓글 읽기");
-        return new ArrayList<>();
-    }
-    public int deleteComment(){
-        System.out.println("댓글 삭제");
-        return 0;
-    }
+
 }

@@ -1,7 +1,8 @@
 package com.codestatesddd.domain.user.controller;
 
 
-import com.codestatesddd.domain.user.service.UserService;
+import com.codestatesddd.domain.user.service.StudentService;
+import com.codestatesddd.domain.user.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
@@ -13,11 +14,13 @@ import reactor.core.publisher.Mono;
 public class UserController {
 
     @Autowired
-    UserService userService;
+    StudentService studentService;
+    @Autowired
+    TeacherService teacherService;
     public Mono<ServerResponse> saveStudent(ServerRequest request){
-        return ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).bodyValue(userService.saveStudent());
+        return ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).bodyValue(studentService.saveStudent());
     }
     public Mono<ServerResponse> saveTeacher(ServerRequest request){
-        return ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).bodyValue(userService.saveTeacher());
+        return ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).bodyValue(teacherService.saveTeacher());
     }
 }

@@ -18,7 +18,7 @@ import static org.springframework.web.reactive.function.server.RequestPredicates
 public class WebFluxConfig implements WebFluxConfigurer {
 
     @Bean
-    public RouterFunction<ServerResponse> routes(BoardController boardController) {
+    public RouterFunction<ServerResponse> boardRoutes(BoardController boardController) {
         return RouterFunctions
                 .route(GET("/boards"), boardController::getBoardList) // 게시글 목록 조회
                 .andRoute(POST("/boards"), boardController::saveBoard) // 게시글 등록
@@ -30,7 +30,7 @@ public class WebFluxConfig implements WebFluxConfigurer {
                 ;
     }
     @Bean
-    public RouterFunction<ServerResponse> routes(CourseController courseController) {
+    public RouterFunction<ServerResponse> courseRoutes(CourseController courseController) {
         return RouterFunctions
                 .route(GET("/course"), courseController::getCourseLsit) // 강좌 목록 조회
                 .andRoute(POST("/course"), courseController::saveCourse) // 강좌 등록
@@ -41,10 +41,10 @@ public class WebFluxConfig implements WebFluxConfigurer {
                 ;
     }
     @Bean
-    public RouterFunction<ServerResponse> routes(UserController userController) {
+    public RouterFunction<ServerResponse> UserRoutes(UserController userController) {
         return RouterFunctions
-                .route(POST("/user/student"), userController::saveStudent)
-                .andRoute(POST("/user/teacher"), userController::saveTeacher)
+                .route(POST("/user/student"), userController::saveStudent) // 학생 등록
+                .andRoute(POST("/user/teacher"), userController::saveTeacher) // 강사 등록
                 ;
     }
 }
