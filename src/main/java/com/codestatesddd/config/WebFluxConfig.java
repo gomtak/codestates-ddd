@@ -43,8 +43,8 @@ public class WebFluxConfig implements WebFluxConfigurer {
     @Bean
     public RouterFunction<ServerResponse> UserRoutes(UserController userController) {
         return RouterFunctions
-                .route(POST("/user/student"), userController::saveStudent) // 학생 등록
-                .andRoute(POST("/user/teacher"), userController::saveTeacher) // 강사 등록
+                .route(POST("/users/students"), userController::saveStudent) // 학생 등록
+                .andRoute(POST("/users/teachers"), userController::saveTeacher) // 강사 등록
                 ;
     }
 }
